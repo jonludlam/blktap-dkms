@@ -38,6 +38,10 @@ static struct cdev blktap_ring_cdev;
   */
 #define RING_PAGES 1
 
+#ifndef VM_RESERVED
+# define  VM_RESERVED   (VM_DONTEXPAND | VM_DONTDUMP)
+#endif
+
 #define BLKTAP_INFO_SIZE_AT(_memb)			\
 	offsetof(struct blktap_device_info, _memb) +	\
 	sizeof(((struct blktap_device_info*)0)->_memb)
